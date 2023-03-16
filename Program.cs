@@ -1,8 +1,9 @@
 ﻿
 // snack1();
 // snack2();
-
-snack3();
+// snack3();
+// snack4();
+// snack5();
 
 // CONDIZIONALI
 void snack1()
@@ -78,4 +79,56 @@ void snack3()
     }
 
     Console.WriteLine($"La somma dei numeri è {somma}");
+}
+
+void snack4()
+{
+    //Calcola la somma e la media dei numeri da 2 a 10.
+
+    int[] numeri = new int[9]; 
+    for (int i = 2; i <= 10; i++)
+    {
+        numeri[i - 2] = i;
+    }
+
+    int somma = 0;
+
+    for (int i = 0; i < numeri.Length; i++)
+    {
+        somma += numeri[i];
+    }
+
+    double media = (double)somma / numeri.Length;
+
+    for (int i = 0; i < numeri.Length; i++)
+    {
+        Console.WriteLine(numeri[i]);
+    }
+
+    Console.WriteLine($"La somma dei numeri è {somma}");
+
+    Console.WriteLine($"La media dei numeri è {media}");
+}
+
+// Operatore modulo
+
+void snack5()
+{
+    /* Il software chiede all’utente di inserire un numero. Se il numero inserito
+    è pari, stampa il numero, se è dispari, stampa il numero successivo. */
+
+    Console.WriteLine("Dammi un numero pari, se mi darai un numero dispari lo aumenterò di 1");
+
+    int numero = Convert.ToInt32(Console.ReadLine());
+
+    bool pari = (numero % 2 == 0);
+
+    if ( pari )
+    {
+        Console.WriteLine($"il numero scelto ({numero}) è pari");
+    }
+    else
+    {
+        Console.WriteLine($"il numero scelto NON è pari, dunque ne ho aggiunto uno, il risultato è : {numero+1}");
+    }
 }
