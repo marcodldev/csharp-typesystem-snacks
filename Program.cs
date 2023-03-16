@@ -4,7 +4,10 @@
 // snack3();
 // snack4();
 // snack5();
-snack6();
+// snack6();
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+snack7();
 
 // CONDIZIONALI
 void snack1()
@@ -167,5 +170,43 @@ void snack6()
             
         }
 
+    }
+}
+
+void snack7()
+{
+    /* Crea un array vuoto.
+    Chiedi per 6 volte all’utente di inserire un numero, se è dispari
+    inseriscilo nell’array. */
+
+    Console.WriteLine("Voglio 6 numeri dispari");
+
+    int[] arrayVuoto = new int[6];
+
+    //bool dispari = (numero % 2 == 1);
+
+    for (int i = 0; i < arrayVuoto.Length;i++)
+    {
+        Console.WriteLine($"Inserisci il {i + 1}° numero: ");
+        int numero = Convert.ToInt32(Console.ReadLine());
+
+        if (numero % 2 == 1)
+        {
+            arrayVuoto[i] = numero;
+        }
+        else
+        {
+            Console.WriteLine("Attenzione hai inserito un numero pari");
+        }
+            
+    }
+
+    if(arrayVuoto != null)
+    {
+        Console.WriteLine($"I numeri che hai scelto sono:");
+        foreach (int numero in arrayVuoto)
+        {
+            Console.WriteLine(numero + " ");
+        }
     }
 }
