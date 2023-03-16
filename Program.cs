@@ -4,6 +4,7 @@
 // snack3();
 // snack4();
 // snack5();
+snack6();
 
 // CONDIZIONALI
 void snack1()
@@ -130,5 +131,41 @@ void snack5()
     else
     {
         Console.WriteLine($"il numero scelto NON è pari, dunque ne ho aggiunto uno, il risultato è : {numero+1}");
+    }
+}
+
+// Array
+
+void snack6()
+{
+    /* 
+    In un array sono contenuti i nomi degli invitati alla festa del grande
+    Gatsby. Chiedi all’utente il suo nome e comunicagli se può partecipare
+    o meno alla festa
+     */
+
+    Console.WriteLine("Devo controllare se sei presente nella lista, mi serve il tuo nome");
+
+    string nomeDaControllare = Console.ReadLine() ?? "";
+
+    string[] invitati = { "luca", "marco", "giovanni"};
+
+    for (int i = 0;i < invitati.Length;i++)
+    {
+
+        if (nomeDaControllare == invitati[i])
+        {
+            Console.WriteLine("divertiti");
+            break;
+        }
+        else
+        {
+            if (i == invitati.Length - 1)
+            {
+                Console.WriteLine("non sei sulla lista");
+            }
+            
+        }
+
     }
 }
