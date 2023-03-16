@@ -5,9 +5,12 @@
 // snack4();
 // snack5();
 // snack6();
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-snack7();
+// snack7();
+// snack8();
+// snack9();
+ snack10(); 
+// snack11();
+// snack12();
 
 // CONDIZIONALI
 void snack1()
@@ -208,5 +211,186 @@ void snack7()
         {
             Console.WriteLine(numero + " ");
         }
+    }
+}
+
+void snack8()
+{
+    /* 
+     Crea un array di numeri interi e fai la somma di tutti gli elementi che
+     sono in posizione dispari.
+     */
+
+    int[] arrayNumeri = { 1, 2, 3, 4, 5, 6 };
+
+    int somma = 0;
+
+    for (int i = 0; i < arrayNumeri.Length; i += 2)
+    {
+        somma += arrayNumeri[i];
+    }
+
+    Console.WriteLine($"La somma degli elementi in posizione dispari dell'array è: {somma}");
+}
+
+
+// Ciclo while
+
+
+void snack9()
+{
+    /* Crea un array vuoto e chiedi all’utente un numero da inserire nell’array.
+     Continua a chiedere i numeri all’utente e a inserirli nell’array, fino a
+     quando la somma degli elementi è minore di 50. */
+
+    int[] arrayNumeri = new int[50];
+
+    int somma = 0;
+    int i = 0;
+
+    while (somma < 50)
+    {
+        Console.WriteLine("Inserisci un numero:");
+        int numero = Convert.ToInt32(Console.ReadLine());
+
+        arrayNumeri[i] = numero;
+        i++;
+        somma += numero;
+    }
+
+    Console.WriteLine("I numeri che hai scelto sono:");
+    for (int j = 0; j < i; j++)
+    {
+        Console.WriteLine(arrayNumeri[j]);
+    }
+
+}
+
+
+
+// Random
+
+
+void snack10()
+{
+    /* 
+        Fai inserire un numero, che chiameremo N, all’utente.
+        Genera N array, ognuno formato da 10 numeri casuali tra 1 e 100.
+        Ogni volta che ne crei uno, stampalo a schermo.*/
+     
+
+    Console.Write("Quanti array vuoi generare?");
+
+    int N = Convert.ToInt32(Console.ReadLine());
+
+    Random numeriRandom = new Random();
+
+    for (int i = 0;i < N; i++)
+    {
+        int[] array = new int[10];
+
+        for (int j = 0; j < array.Length; j++)
+        {
+            array[j] = numeriRandom.Next(0, 100); 
+        }
+
+        Console.Write("Array " + (i + 1) + ": ");
+        foreach (int num in array)
+        {
+            Console.Write(num + " ");
+        }
+        Console.WriteLine();
+
+    }
+
+
+}
+
+// FUNZIONI
+
+void snack11()
+{
+    /* 
+        Dare la possibilità di inserire due parole.
+        Verificare tramite una funzione che le due parole abbiano la stessa
+        lunghezza. Se hanno la stessa lunghezza, stamparle entrambe,
+        altrimenti stampare la più lunga delle due.
+     */
+
+    Console.WriteLine("Scrivi 2 parole");
+
+    string parolaScelta1 = Console.ReadLine() ?? "";
+    string parolaScelta2 = Console.ReadLine() ?? "";
+
+    bool checkLunghezza(string parola1,string parola2)
+    {
+        if (parola1.Length == parola2.Length)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool parolaLunga(string parola1, string parola2)
+    {
+        if (parola1.Length > parola2.Length)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    if (checkLunghezza(parolaScelta1,parolaScelta2)) {
+        Console.WriteLine("le due parole hanno la stessa lunghezza");
+    }
+    else
+    {
+        Console.WriteLine("le due parole NON hanno la stessa lunghezza, ti stampo la più lunga:");
+        if(parolaLunga(parolaScelta1, parolaScelta2) ){
+            Console.WriteLine(parolaScelta1);
+        }
+        else
+        {
+            Console.WriteLine(parolaScelta2);
+        }
+    }
+}
+
+void snack12()
+{
+    /* 
+     Scrivere una funzione per verificare se un numero è pari o dispari.
+       Quindi chiedere un numero all'utente e comunicargli se è pari o dispari
+     */
+
+    bool pariOdispari(int numero)
+    {
+        if(numero % 2 == 0)
+        {
+            return true;
+        }
+        else
+        {
+           return false;
+        }
+    }
+
+    Console.WriteLine("dammi un numero,ti dirò se è pari o dispari");
+
+    int numeroUtente = Convert.ToInt32(Console.ReadLine());
+
+    if (pariOdispari(numeroUtente))
+    {
+        Console.WriteLine("Pari");
+    }
+    else
+    {
+        Console.WriteLine("Dispari");
     }
 }
